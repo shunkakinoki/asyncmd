@@ -1,0 +1,23 @@
+name: Publish Image to DockerHub
+on:
+  push:
+    branches:
+      - master
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Publish Image to DockerHub
+        run: |
+          cd $GITHUB_WORKSPACE
+          echo ${PASSWORD} | docker login -u $USERNAME --password-stdin
+          git diff -a --exit-code --no-ext-diff --no-prefix --unified=0 origin/master~1... Dockerfile | egrep "^\+" | grep -q "FROM" && true || docker pull $BASE_NAME
+          IMAGE_NAME="$BASE_NAME:$GITHUB_SHA"
+          docker build --cache-from $BASE_NAME -t $BASE_NAME -t $IMAGE_NAME -f Dockerfile .
+          docker push $IMAGE_NAME
+          docker push $BASE_NAME
+        env:
+          USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          BASE_NAME: ${{ github.repository }}
