@@ -1,5 +1,5 @@
 #!/bin/bash
-
+LC_CTYPE=C
 NEW_UUID=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
 BRANCH_NAME=auto-commit/$NEW_UUID
 
