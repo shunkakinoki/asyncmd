@@ -1,4 +1,4 @@
-FROM debian:9
+FROM debian:stable
 
 RUN apt-get update \
     && apt-get install --no-install-recommends -y git hub autoconf automake gettext autopoint libtool make g++ texinfo curl \
