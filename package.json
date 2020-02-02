@@ -1,0 +1,19 @@
+{
+  "name": "pitch",
+  "version": "0.0.1",
+  "private": true,
+  "description": "asyncmd",
+  "author": {
+    "name": "Shun Kakinoki",
+    "email": "shunkakinoki@gmail.com",
+    "url": "https://www.shunkakinoki.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asyncmd/asyncmd"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "prettier": "^1.19.1"
+  }
+}
