@@ -5,6 +5,7 @@ BRANCH_NAME=auto-commit/$NEW_UUID
 
 if [ `git branch --list $BRANCH_NAME` ]
 then
+    git checkout -b $BRANCH_NAME
     git add src
     git commit -am "Changed file $*, Auto-Commit V0.1"
     git push
