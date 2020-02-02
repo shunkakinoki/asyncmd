@@ -1,7 +1,7 @@
 FROM debian:stable
 
 RUN apt-get update \
-    && apt-get install --no-install-recommends -y git hub autoconf automake gettext autopoint libtool make g++ texinfo curl \
+    && apt-get install --no-install-recommends -y git hub ca-certificates autoconf automake gettext autopoint libtool make g++ texinfo curl \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
