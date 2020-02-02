@@ -4,4 +4,4 @@ services:
     image: asyncmd/asyncmd
     volumes:
       - .:/src
-    command: fswatch -d src | xargs -0 -n 1 bash ./auto-commit.sh
+    command: fswatch -0 -d src | xargs -0 -n 1 bash ./auto-commit.sh
