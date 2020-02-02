@@ -1,2 +1,2 @@
 run:
-	docker-compose pull && docker-compose up --build
+	fswatch -0 -d src | xargs -0 -n 1 bash ./auto-commit.sh
