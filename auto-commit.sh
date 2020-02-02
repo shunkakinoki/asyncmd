@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NEW_UUID=$(cat /dev/urandom | LC_CTYPE=C tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+NEW_UUID=$(LC_ALL=C tr -dc 'A-Za-z0-9!"#$%&'\''()*+,-./:;<=>?@[\]^_`{|}~' </dev/urandom | head -c 13)
 BRANCH_NAME=auto-commit/$NEW_UUID
 
 if [ `git branch --list $BRANCH_NAME` ]
